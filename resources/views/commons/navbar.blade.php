@@ -8,15 +8,23 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">TaskList</a>
+                <a class="navbar-brand" href="/tasks">Tasklist</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>{!! link_to_route('tasks.create', '新規タスク投稿') !!}</li>
+                    @if (Auth::check())
+                        <li class="navbar-header">
+                             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" ar\ia-expanded="false">
+                        </li>
+			            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>{!! link_to_route('logout.get', 'Logout') !!}</li>
                 </ul>
-		    <ul class="nav navbar-nav navbar-right">
-                    <li>{!! link_to_route('signup.get', 'Signup') !!}</li>
-                    <li><a href="#">Login</a></li>
+            </div>
+                    @else
+                        <li>{!! link_to_route('signup.get', 'Signup') !!}</li>
+                        <li>{!! link_to_route('login', 'Login') !!}</li>
+                    @endif
                 </ul>
             </div>
         </div>
