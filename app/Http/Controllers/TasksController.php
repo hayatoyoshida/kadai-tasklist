@@ -25,7 +25,7 @@ class TasksController extends Controller
      $tasks = $user->tasks()->orderBy('created_at')->paginate(10);
      return view('tasks.index', ['tasks' => $tasks,]);
 	 }
-	 else{return redirect('login');}
+	 else{return view('welcome');}
        
     }
 
